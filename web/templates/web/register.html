@@ -2,25 +2,25 @@
 
 <head>
     <title>register</title>
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/r2.css' %}">
-<script language="javascript" src="{% static 'js/r2.js' %}"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/r2.css' %}">
+    <script language="javascript" src="{% static 'js/r2.js' %}"></script>
 
-<!--import bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--import bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<!-- icon & css setting -->
-<link rel="shortcut icon" href="{% static 'img/icon.svg' %}">
-<link rel="icon" href="{% static 'img/icon.svg' %}">
-<link rel="stylesheet" href="{% static 'css/index.css' %}">
-<script src="{% static 'js/index.js' %}"></script>
-<script>
-    if ('{{result}}'=="success")alert("등록에 성공하셨습니다.");
-</script>
+    <!-- icon & css setting -->
+    <link rel="shortcut icon" href="{% static 'img/icon.svg' %}">
+    <link rel="icon" href="{% static 'img/icon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+    <script>
+        if ('{{result}}' == "success") alert("등록에 성공하셨습니다.");
+    </script>
 </head>
 
 <body bgcolor="#E2E2E2">
@@ -29,7 +29,7 @@
 
         <!-- 상단 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
-            <a class="navbar-brand" href="#"><img src="{% static 'img/logo.svg' %}" alt="logo" id="logo"></a>
+            <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/logo.svg' %}" alt="logo" id="logo"></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
                 data-target="#navbarTop" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,61 +45,50 @@
         </nav>
 
 
+        <div class="col">
+            <div class="bg-light container p-4 mt-2 footerBox border">
+                <div class="row">
+                    <form action="{% url 'register'%}" method="POST">
+                        {% csrf_token %}
 
-        <form action = "{% url 'register'%}" method = "POST">
-            {% csrf_token %}
-            <p>
-                <table width=100%>
-                    <tr>
-                        <td>
+                        <select name="s1" id="regOs">
+                            <option selected value="">os선택</option>
+                            <option value="맥">mac</option>
+                            <option value="윈도우">windows</option>
+                        </select>
 
-                            <select name="s1" id="regOs">
-                                <option selected value="">os선택</option>
-                                <option value="맥">mac</option>
-                                <option value="윈도우">windows</option>
-                            </select>
+                        <select name="s2" id="regProg">
+                            <option selected value="">프로그램 선택</option>
+                            <option value="엑셀">엑셀</option>
+                            <option value="포토샵">포토샵</option>
+                            <option value="일러스트">일러스트</option>
+                        </select>
 
-                            <select name="s2" id="regProg">
-                                <option selected value="">프로그램 선택</option>
-                                <option value="엑셀">엑셀</option>
-                                <option value="포토샵">포토샵</option>
-                                <option value="일러스트">일러스트</option>
-                            </select>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="text" name=regRepValue placeholder="수행할 작업 대표값 입력(예: 복사하기)" id="regRepValue">
-                            <input name="addButton" type="button" style="cursor:hand" onClick="insRow()" value="+">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table id="regSynValue" width="50" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF"
-                                border="0">
-                                <tr>
-                                    <td>
-                                        <input type="text" name="regSynValue" style="width:900px; height:50px;"
-                                            placeholder="위에서 입력한 값의 동의어를 입력하세요(예:복제하기, 똑같이 만들기...)">
-                                            
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                        <input type="text" name=regRepValue placeholder="수행할 작업 대표값 입력(예: 복사하기)" id="regRepValue">
+                        <input name="addButton" type="button" style="cursor:hand" onClick="insRow()" value="+">
+                        <input name="removeButton" type="button" style="cursor:hand" onClick="removeRow()" value="x">
 
-                            <input type="text" name = regShortValue placeholder="해당 작업의 단축키 입력(예: 컨드롤 C)" id="regShortValue">
+                        <table id="regSynValue" width="50" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" border="0">
+                            <tr>
+                                <td>
+                                    <input type="text" name="regSynValue" style="width:900px; height:50px;"
+                                        placeholder="위에서 입력한 값의 동의어를 입력하세요(예:복제하기, 똑같이 만들기...)">
 
-                        </td>
-                    </tr>
-                </table>
-                <input type="reset" id="cancelBtn" value="취소">
-                <input type="submit" id="ApplyBtn" value="등록신청">
-            </p>
-        </form>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <input type="text" name=regShortValue placeholder="해당 작업의 단축키 입력(예: 컨드롤 C)" id="regShortValue">
+
+                        <input type="reset" id="cancelBtn" value="취소">
+                        <input type="submit" id="ApplyBtn" value="등록신청">
+
+                    </form>
+                </div>
+            </div>
+        </div>
 
 </body>
 
