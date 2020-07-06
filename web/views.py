@@ -18,6 +18,13 @@ def show_list(request):
     paginator = Paginator(show_lists, 10)
     return render(request, "web/list.html",{'short_lists': show_lists})
 
+def show_list_1(request):
+    print("list1")
+    if request.session.get('os', False) or request.session.get('program', False) or request.session.get('searchValue', False):
+        request.session.clear()
+    show_lists = Logic.get_list(request)
+    paginator = Paginator(show_lists, 10)
+    return render(request, "web/list.html",{'short_lists': show_lists})
     
 
 def register(request):
