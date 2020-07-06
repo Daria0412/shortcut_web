@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1">
     <meta name="author" content="Alvaro Trigo Lopez" />
 	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
@@ -23,7 +22,9 @@
     <!-- icon & css setting -->
     <link rel="shortcut icon" href="{% static 'img/icon.svg' %}">
     <link rel="icon" href="{% static 'img/icon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/thirdsection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <script src="{% static 'js/index.js' %}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
@@ -34,7 +35,7 @@
 
             //initialising fullpage.js in the jQuery way
             $('#fullpage').fullpage({
-                sectionsColor: ['#FF7BAC', '#FF7BAC', '#FF7BAC', '#FF7BAC'],
+                sectionsColor: ['#FF7BAC','#FF7BAC','#FF7BAC','#FF7BAC'],
                 navigation: true,
                 slidesNavigation: true,
             });
@@ -45,7 +46,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <style type="text/css">
     #actions{
@@ -65,11 +65,10 @@
         color: #fff;
         background: #81A140;
     }
-    font {
-        font-family: "여기어때 잘난체 OTF";
-    }
     #sha {
+
         text-shadow: -2px 0 #3327FF, 0 2px #3327FF, 2px 0 #3327FF, 0 -2px #3327FF;
+
     }
 
     </style>
@@ -78,6 +77,7 @@
 
 <body>
 
+    <div class="container">
         <!-- 상단 네비게이션 바 -->
         <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
             <a class="navbar-brand" href="{% url 'index' %}">
@@ -88,71 +88,51 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarTop" id="actions">
+            <div class="collapse navbar-collapse" id="navbarTop">
                 <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'show_list' %}" id="list">
-                            <font color="#FFFFFF">목록보기</font></a>
-                        </li>
-
-                        <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" id="register">
-                            <font color="#FFFFFF">등록하기</font></a>
-                        </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'show_list' %}" id="list">목록보기</a> </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" id="register">등록하기</a> </li>
                 </ul>
             </div>
         </nav>
+    </div>
 
 
 
 <div id="fullpage">
 
     <div class="section">
-        <div class="wrapper">
-            <ul class="team1">
-                <li class="team-item1">
-                    <div class="intro">
-                        <div1>
-                            <img src="{% static 'img/a.png' %}" width = "2150" height = "500"></img></div1>
-
-                        <div2 class="carousel-caption" style="position:absolute; left:250px;">
-                            <img src="{% static 'img/nugu_ai.png' %}" width = "182" height = "400"></img></div2>
-
-                    </div>
-                </li>
-            </ul>
+        <div class="intro">
+            <div style="position: absolute; top:100px;">
+                <div style="position: relative; left:-100px; top:-50px">
+                    <img src="{% static 'img/a.png' %}" width = "1900" height = "500"></img></div>
+            </div>
+            <div style="position: absolute; top:200px;">
+                <div style="position: relative; left: 750px; top:-30px">
+                    <img src="{% static 'img/nugu_ai.png' %}" width = "150" height = "400"></img></div>
+            </div>
         </div>
     </div>
 
     <div class="section">
-            <div class = "hh">
-                <div class = "img1">
-                    <img src="{% static 'img/nugu_ai.png' %}"></img>
+        <div style="position: absolute; top:80px;">
+                <div style="position: relative; left: 150px;">
+                    <img src="{% static 'img/nugu_ai.png' %}" width = "150" height = "400"></img>
                 </div>
-            </div>
-            <div class="typewriter">
-
-                <p class="hellotype" id="hello"><font color="FAFF00">안녕하세요!</font></p>
-                <br><br>
-                <p class="hellotype2" id="aiSpeak"><font color="white">AI 인공지능 스피커 NUGU의<br> 단축키 알림 서비스, </font>
-               <font color = "3327FF">지름길입니다.</font></p>
-            </div>
-
+        </div>
+        <div class="typewriter" style="position: absolute; left:400px; top:90px;">
+            <h1><font color="FAFF00" size = "17" >안녕하세요!</font></h1>
+            <br><br>
+            <font color="white" size = "17">AI 인공지능 스피커 NUGU의<br> 단축키 알림 서비스, </font>
+            <font color = "3327FF" size="17">지름길입니다.</font></h1>
+        </div>
     </div>
 
     <div class="section">
-        <div class="wrapper">
-            <ul class="team2">
-                <li class="team-item2">
-                    <div class="youtube">
-                        <div class=”embed-responsive embed-responsive-16by9“>
-                            <iframe width="700" height="500" src="https://www.youtube.com/embed/yNQps5sMojw?amp;autoplay=1&amp;
-                                    playlist="yNQps5sMojw&amp;loop=1"
-                                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-                                    picture-in-picture" allowfullscreen="">
-                            </iframe>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class=”embed-responsive embed-responsive-16by9“ style="position:absolute; left:20%; top:20px">
+            <iframe width="900" height="510" src="https://www.youtube.com/embed/yNQps5sMojw?amp;autoplay=1&amp";
+                    playlist=`yNQps5sMojw&amp;loop=1`>
+            </iframe>
         </div>
     </div>
 
@@ -161,55 +141,61 @@
             <ul class="team">
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/강은서.png' %}">
+                        <a href="http://github.com/KangEunseo" target="_blank"><img src="{% static 'img/강은서.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">강은서<span>웹 프론트엔드/디자인</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/KangEunseo</p>
+                        	<h2>강은서</h2>
+                            <span style="color: #FAFF00">프론트엔드/디자인</span><br>
+                        	솔루션과
                         </div>
                     </div>
                 </li>
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/남정윤.png' %}">
+                        <a href="http://github.com/Daria0412" target="_blank"><img src="{% static 'img/남정윤.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">남정윤<span>웹 백엔드/서버</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/Daria0412</p>
+                        	<h2>남정윤</h2>
+                            <span style="color: #FAFF00">웹 백엔드/서버</span><br>
+                        	뉴미디어웹솔루션과
                         </div>
                     </div>
                 </li>
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/오승연.png' %}">
+                        <a href="http://github.com/OhSeungYeon" target="_blank"><img src="{% static 'img/오승연.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">오승연<span>웹 프론트엔드/서버</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/OhSeungYeon</p>
+                        	<h2>오승연</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/서버</span><br>
+                        	뉴미디어웹솔루션과
                         </div>
                     </div>
                 </li>
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/윤희나.png' %}">
+                        <a href="http://github.com/yunwhite" target="_blank"><img src="{% static 'img/윤희나.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">윤희나<span>웹 프론트엔드/서버</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/yunwhite</p>
+                        	<h2>윤희나</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/서버</span><br>
+                        	뉴미디어소프트웨어과
                         </div>
                     </div>
                 </li>
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/한다연.png' %}">
+                        <a href="http://github.com/handayeon" target="_blank"><img src="{% static 'img/한다연.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">한다연<span>웹 프론트엔드</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/handayeon</p>
+                        	<h2>한다연</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드</span><br>
+                        	뉴미디어웹솔루션과
                         </div>
                     </div>
                 </li>
                 <li class="team-item">
                     <div class="profile">
-                        <img src="{% static 'img/함지현.png' %}">
+                        <a href="http://github.com/hamjihyeon" target="_blank"><img src="{% static 'img/함지현.png' %}"></a>
                         <div class="profile-contents">
-                        	<h2 style="font-family: 여기어때 잘난체">함지현<span>웹 프론트엔드/백엔드</span></h2>
-                        	<p style="font-family: 여기어때 잘난체">뉴미디어솔루션과<br>github.com/hamjihyeon</p>
+                        	<h2>함지현</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/백엔드</span><br>
+                        	뉴미디어웹솔루션과
                         </div>
                     </div>
                 </li>
@@ -222,7 +208,6 @@
     <!-- js setting -->
     <script src="{% static 'js/index.js' %}"></script>
 
-
 </body>
 
-</html>
+</html> 
