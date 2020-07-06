@@ -53,31 +53,36 @@
 
         <div class="col">
             <div class="bg-light container p-5 mt-2 mb-5 footerBox border">
-                <div class="row">
-                    <form action="{% url 'show_list'%}" method="POST" class="form-inline">
+
+                    <form action="{% url 'show_list'%}" method="POST">
                         {% csrf_token %}
-                        <table align="center">
-                            <tr>
-                                <td style="background-color: white;">
-                                    <select name="s1" id="searchOs" class="form-control">
+                        <div class="row form-group" style="background-color: white">
+                            <div class="col-md-2">
+                               <select name="s1" id="searchOs" class="form-control">
                                         <option selected value="">os선택</option>
                                         <option value="윈도우">windows</option>
                                         <option value="맥">mac</option>
                                     </select>
-                                    <select name="s2" id="searchProg" class="form-control">
+                            </div>
+                            <div class="col-md-2">
+                                <select name="s2" id="searchProg" class="form-control">
                                         <option selected value="">프로그램 선택</option>
                                         <option value="일러스트레이터">일러스트</option>
                                         <option value="포토샵">포토샵</option>
                                         <option value="엑셀">엑셀</option>
                                     </select>
-                                    <input type="text" class="form-control" id="searchValue" name="searchValue"
-                                        size="60px" placeholder=" 찾으실 단축키이름을 입력하세요">
-                                    <button type="submit" id="searchBtn" class="form-control"><img
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" id="searchValue" name="searchValue"
+                                        placeholder=" 찾으실 단축키이름을 입력하세요">
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" id="searchBtn" class="form-control"><img
                                             src="{% static 'img/search.svg' %}" class="searchImg"></button>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
+                            </div>
+
+                </div>
+                        </form>
                     <p class="ml-auto"><a href="delete/"><img src="{% static 'img/recycle.png' %}" alt="recycle"></a></p>
 
                     <table bgcolor="#e9ecef" class="table text-center">
