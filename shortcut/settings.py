@@ -25,7 +25,7 @@ SECRET_KEY = 'i189i86hogwl55qbc5)mwi0z9wcs_x5-y^u@6)i3d%^)h87im6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','http://shortcut.emirim.kr:8000/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,14 +79,13 @@ WSGI_APPLICATION = 'shortcut.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shortcut', # DB명
-        'USER': 'shortcut', # 데이터베이스 계정
+        'NAME': 'pitapet', # DB명
+        'USER': 'pitapet', # 데이터베이스 계정
         'PASSWORD': 'mirim2', # 계정 비밀번호
-        'HOST': '18.217.183.238', # 데이테베이스 주소(IP)
+        'HOST': '3.21.207.223', # 데이테베이스 주소(IP)
         'PORT': '3306', # 데이터베이스 포트(보통은 3306)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
