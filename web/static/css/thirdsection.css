@@ -1,0 +1,72 @@
+body, ul, h2, p{
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+body {
+    background-color: #FF7BAC;
+    color: #FF7BAC;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.team {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 300px;
+}
+
+.team-item {
+	flex-basis: 200px;
+	flex-shrink: 10;
+	margin: 0 10px;
+	transition: all .4s;
+}
+
+.team-item:hover {
+	flex-basis: 250px;
+	margin: 0 20px;
+}
+
+.team-item img {
+	width: 100%;
+}
+
+.profile {
+	position: relative;
+}
+
+.profile-contents {
+	position: absolute;
+	padding: 10px;
+	color: white;
+}
+
+.profile-contents h2 {
+	font-size: 30px;
+	color: white;
+	text-shadow: -1px 0 #3327FF, 0 1px #3327FF, 1px 0 #3327FF, 0 -1px #3327FF;
+}
+
+.profile-contents h2 span {
+	display: block;
+	font-size: 18px;
+}
+
+.profile-contemts p {
+	display: none;
+}
+
+.profile-contents p {
+	color: white;
+	font-size: 15px;
+}
