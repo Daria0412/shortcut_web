@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
+	<meta name="Resource-type" content="Document" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!--import bootstrap -->
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script language="javascript" src="{% static 'js/index.js' %}"></script>
+    <!-- icon & css setting -->
+    <link rel="shortcut icon" href="{% static 'img/icon.svg' %}">
+    <link rel="icon" href="{% static 'img/icon.svg' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/thirdsection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+
+</head>
+
+<body class="text-justify-lg">
+
+    <div class="container">
+        <!-- 상단 네비게이션 바 -->
+        <nav class="navbar navbar-expand-lg navbar-light mt-3 mb-3">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <font id="sha" size = "17" color = "#FFFFFF">지름길</font>
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarTop" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTop">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'show_list' %}" id="list">목록보기</a> </li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}" id="register">등록하기</a> </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+
+<div id="fullpage">
+
+    <div class="section">
+        <div class="back" style="position: absolute; top: 100px">
+            <img src="{% static 'img/a.png' %}" alt=""
+                               class="img-responsive center-block" ></div>
+        <div class="front" style="position: relative; margin: 0 auto">
+            <img src="{% static 'img/nugu_ai.png' %}" alt=""
+                                class="img-responsive center-block"  width = "150" height = "400" ></div>
+
+    </div>
+
+    <div class="section">
+{#        <div style="position: absolute; top:80px;">#}
+{#                <div style="position: relative; left: 150px;">#}
+{#                    <img src="{% static 'img/nugu_ai.png' %}" width = "150" height = "400"></img>#}
+{#                </div>#}
+{#        </div>#}
+{#        <div class="typewriter" style="position: absolute; left:400px; top:90px;">#}
+{#            <h1><font color="FAFF00" size = "17" >                                                                                         /font></h1>#}
+{#        </div>#}
+
+         <div class="container">
+                <div style="position: relative; margin: 0 auto">
+                    <img src="{% static 'img/nugu_ai.png' %}" width = "150" height = "400" class="img-responsive"></img>
+                </div>
+            <div class="typewriter" style="position: relative">
+                <h1><font color="FAFF00" size = "17" >안녕하세요!</font></h1>
+                <br><br>
+                <font color="white" size = "17">AI 인공지능 스피커 NUGU의<br> 단축키 알림 서비스, </font>
+                <font color = "3327FF" size="17">지름길입니다.</font>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class='embed-container'>
+            <iframe src='https://www.youtube.com/embed/yNQps5sMojw?amp;autoplay=1&amp' frameborder='0' allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="wrapper">
+            <ul class="team">
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/KangEunseo" target="_blank"><img src="{% static 'img/강은서.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>강은서</h2>
+                            <span style="color: #FAFF00">프론트엔드/디자인</span><br>
+                        	뉴미디어웹솔루션과
+                        </div>
+                    </div>
+                </li>
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/Daria0412" target="_blank"><img src="{% static 'img/남정윤.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>남정윤</h2>
+                            <span style="color: #FAFF00">웹 백엔드/서버</span><br>
+                        	뉴미디어웹솔루션과
+                        </div>
+                    </div>
+                </li>
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/OhSeungYeon" target="_blank"><img src="{% static 'img/오승연.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>오승연</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/서버</span><br>
+                        	뉴미디어웹솔루션과
+                        </div>
+                    </div>
+                </li>
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/yunwhite" target="_blank"><img src="{% static 'img/윤희나.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>윤희나</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/서버</span><br>
+                        	뉴미디어소프트웨어과
+                        </div>
+                    </div>
+                </li>
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/handayeon" target="_blank"><img src="{% static 'img/한다연.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>한다연</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드</span><br>
+                        	뉴미디어웹솔루션과
+                        </div>
+                    </div>
+                </li>
+                <li class="team-item">
+                    <div class="profile">
+                        <a href="http://github.com/hamjihyeon" target="_blank"><img src="{% static 'img/함지현.png' %}"></a>
+                        <div class="profile-contents">
+                        	<h2>함지현</h2>
+                            <span style="color: #FAFF00">웹 프론트엔드/백엔드</span><br>
+                        	뉴미디어웹솔루션과
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+    <!-- js setting -->
+    <script src="{% static 'js/index.js' %}"></script>
+
+</body>
+
+</html>
